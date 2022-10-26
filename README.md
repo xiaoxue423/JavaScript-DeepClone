@@ -24,3 +24,9 @@
 2. 引入chai和sinon
 3. 开始测试驱动开发Test Driven Development(TDD)
 4. 测试失败-改代码-测试成功-加测试-测试失败-改代码
+
+### 注意
+1. 如何区分类型 object分为array/function/date/regexp
+2. 如何避免环 `let a = {name:'xxx'};a.self = a`
+3. 是否拷贝原型属性 一般不拷贝，否则会把所有的js对象都拷贝
+4. 爆栈要不要考虑 一般来说不考虑
