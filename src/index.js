@@ -1,6 +1,6 @@
 class DeepCloner {
   constructor() {
-    this.cache = [];
+    this.cache = []; //作缓存
   }
   clone(source) {
     if (source instanceof Object) {
@@ -9,11 +9,9 @@ class DeepCloner {
         return cacheList;
       } else {
         let dist;
-        //数组
         if (source instanceof Array) {
           dist = new Array();
         } else if (source instanceof Function) {
-          //函数
           dist = function () {
             return source.apply(this, arguments);
           };
@@ -27,7 +25,7 @@ class DeepCloner {
         }
         this.cache.push([source, dist]);
         for (let key in source) {
-          if(source.hasOwnProperty(key)) {
+          if(source.hasOwnProperty(key)) { //不拷贝原型属性
             dist[key] = this.clone(source[key]);
           }
         }
